@@ -1,3 +1,14 @@
+async function postGame(game) {
+  const res = await fetch("/api/games", {
+    method: "POST",
+    body: JSON.stringify(game),
+    headers: { "Content-Type": "application/json" }
+  });
+
+  const json = await res.json();
+  return json;
+}
+
 const submitBtnEl = document.querySelector("#submit-btn");
 submitBtnEl.addEventListener("click", event => {
   event.preventDefault();
@@ -29,4 +40,7 @@ submitBtnEl.addEventListener("click", event => {
   };
 
   console.log(newGame);
+  postGame(newGame).then( res => {
+    console.log(res);
+  });
 });
