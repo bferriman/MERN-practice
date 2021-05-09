@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Board Game Data Entry Tool</title>
+</head>
+
+<body>
+  <div class="title">
+    <h1>Board Game Data Entry Tool</h1>
+  </div>
+  <div class="data-entry-form">
+    <form>
+      <label for="name">Game Name:</label><br>
+      <input type="text" id="name" name="name"><br>
+      <label for="time">Play Time (min):</label><br>
+      <input type="number" id="time" name="time" value="60" min="5" step="5"><br>
+      <label for="score">Rating:</label><br>
+      <input type="number" id="score" name="score" value="5" min="1" max="10"><br>
+      <br>
+      <input type="checkbox" id="piece1" name="piece1" value="dice">
+      <label for="piece1">Dice</label><br>
+      <input type="checkbox" id="piece2" name="piece2" value="cards">
+      <label for="piece2">Cards</label><br>
+      <input type="checkbox" id="piece3" name="piece3" value="tokens">
+      <label for="piece3">Tokens</label><br>
+      <input type="checkbox" id="piece4" name="piece4" value="pawns">
+      <label for="piece4">Pawns</label><br>
+      <input type="checkbox" id="piece5" name="piece5" value="board">
+      <label for="piece5">Game Board</label><br>
+      <input type="checkbox" id="piece6" name="piece6" value="spinner">
+      <label for="piece6">Spinner</label><br>
+      <input type="checkbox" id="piece7" name="piece7" value="marbles">
+      <label for="piece7">Marbles</label><br>
+      <br>
+      <input type="button" onclick="alert('YOU CLICKED IT')" value="Add Game">
+    </form>
+  </div>
+
+  <script src="/index.js"></script>
+</body>
+
+</html>
