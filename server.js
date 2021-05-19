@@ -1,14 +1,9 @@
 const express = require("express");
 const mongojs = require("mongojs");
-// const logger = require("morgan");
-// const mongoose = require("mongoose");
-// require("dotenv").config();
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-
-// app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -36,8 +31,15 @@ app.post("/api/games", (req, res) => {
   });
 });
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
-
+app.get("/api/games", (req, res) => {
+  db.games.find( (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      return res.json(data);
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
