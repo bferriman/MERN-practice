@@ -67,13 +67,13 @@ submitBtnEl.addEventListener("click", event => {
   const hasMarbles = document.querySelector("#piece7").checked;
 
   const gamePieces = [];
-  if (hasDice) { gamePieces.push("dice")};
-  if (hasCards) { gamePieces.push("cards")};
-  if (hasTokens) { gamePieces.push("tokens")};
-  if (hasPawns) { gamePieces.push("pawns")};
-  if (hasBoard) { gamePieces.push("board")};
-  if (hasSpinner) { gamePieces.push("spinner")};
-  if (hasMarbles) { gamePieces.push("marbles")};
+  if (hasDice) { gamePieces.push("Dice")};
+  if (hasCards) { gamePieces.push("Cards")};
+  if (hasTokens) { gamePieces.push("Tokens")};
+  if (hasPawns) { gamePieces.push("Pawns")};
+  if (hasBoard) { gamePieces.push("Game Board")};
+  if (hasSpinner) { gamePieces.push("Spinner")};
+  if (hasMarbles) { gamePieces.push("Marbles")};
 
   const newGame = {
     name: gameName,
@@ -84,5 +84,6 @@ submitBtnEl.addEventListener("click", event => {
 
   postGame(newGame).then( res => {
     console.log(res);
+    displayGames();
   });
 });
