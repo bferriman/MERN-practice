@@ -9,6 +9,49 @@ async function postGame(game) {
   return json;
 }
 
+async function getGamesData() {
+  const res = await fetch("/api/games", {
+    method: "GET"
+  });
+  const json = await res.json();
+  return json;
+}
+
+async function displayGames() {
+  const gamesData = await getGamesData();
+  const gamesListEl = $("#games-list");
+  gamesListEl.empty();
+  gamesData.forEach( game => {
+    const gameEl = $("<div>");
+    gameEl.attr("class", "game");
+
+    const titleEl = $("<h3>");
+    titleEl.text(game.name);
+
+    const playTimeEl = $("<p>");
+    playTimeEl.text("Play Time: " + game.playtime + " min");
+
+    const ratingEl = $("<p>");
+    ratingEl.text("Rating: " + game.rating);
+
+    const piecesTitleEl = $("<h4>");
+    piecesTitleEl.text("Pieces:");
+
+    const piecesListEl = $("<ul>");
+    game.pieces.forEach( piece => {
+      const listItemEl = $("<li>");
+      listItemEl.text(piece);
+      piecesListEl.append(listItemEl);
+    });
+
+    gameEl.append(titleEl, playTimeEl, ratingEl, piecesTitleEl, piecesListEl);
+
+    gamesListEl.append(gameEl);
+  });
+}
+
+displayGames();
+
 const submitBtnEl = document.querySelector("#submit-btn");
 submitBtnEl.addEventListener("click", event => {
   event.preventDefault();
@@ -39,7 +82,6 @@ submitBtnEl.addEventListener("click", event => {
     pieces: gamePieces
   };
 
-  console.log(newGame);
   postGame(newGame).then( res => {
     console.log(res);
   });
