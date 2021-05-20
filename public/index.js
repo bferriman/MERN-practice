@@ -84,6 +84,17 @@ submitBtnEl.addEventListener("click", event => {
 
   postGame(newGame).then( res => {
     console.log(res);
+    $("#name").val("");
+    $("#time").val("");
+    $("#score").val("");
+    $("#piece1").prop("checked", false);
+    $("#piece2").prop("checked", false);
+    $("#piece3").prop("checked", false);
+    $("#piece4").prop("checked", false);
+    $("#piece5").prop("checked", false);
+    $("#piece6").prop("checked", false);
+    $("#piece7").prop("checked", false);
+
     displayGames();
   });
 });
