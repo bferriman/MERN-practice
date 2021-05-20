@@ -1,10 +1,24 @@
 .title {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 21px;
   color: #653492;
   margin-left: 50px;
 }
 
 .data-entry-form {
   margin-left: 50px;
+}
+
+#games-list {
+  margin-left: 50px;
+}
+
+.game {
+  padding: 10px 20px;
+  margin: 15px 0px;
+  width: 225px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #653492;
+  border-radius: 6px;
 }
